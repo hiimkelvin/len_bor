@@ -1,0 +1,69 @@
+<a href="/sessions/<%=current_lender.id%>" data-method="delete">Log Out</a>
+
+<h3>Name: <%= @lender.first_name %> <%= @lender.last_name %></h3>
+<h3>Account Balance: <%= @lender.money %></h3>
+
+<h3>List of people who are in need of help:</h3>
+
+<table>
+    <thead>
+        <tr>
+            <td>Name</td>
+            <td>Money Needed For</td>
+            <td>Description</td>
+            <td>Amount Needed</td>
+            <td>Amount Rasied</td>
+            <td>Action</td>
+        </tr>
+    </thead>
+    <tbody>
+        <% @borrower.each do |b| %>
+        <tr>
+            <td><%= b.first_name %> <%= b.last_name %></td>
+            <td><%= b.purpose %></td>
+            <td><%= b.description %></td>
+            <td><%= b.money %></td>
+            <td><%= b.raised %></td>
+            <td>
+                <form action="/histories/" method='POST'>
+                    <input type="number" name='hist[amount]'>
+                    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                    <input type="hidden" name="hist[borrower_id]" value = "<%= b.id %>">
+                    <input type="submit" value="Lend">
+                </form>
+            </td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
+
+<h3>List of people you lent money to:</h3>
+
+<table>
+    <thead>
+        <tr>
+            <td>Name</td>
+            <td>Money Needed For</td>
+            <td>Description</td>
+            <td>Amount Needed</td>
+            <td>Amount Rasied</td>
+            <td>Amount Lent</td>
+        </tr>
+    </thead>
+    <tbody>
+        <% @our_borrowers.each do |b| %>
+        <tr>
+            <td><%= b.borrower_idfirst_name %></td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
+
+
+<style>
+    table, th, td{
+        border: 1px solid black;
+        border-collapse: collapse;
+        padding: 5px;
+    }
+</style>

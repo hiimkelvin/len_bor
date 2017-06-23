@@ -1,0 +1,19 @@
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  # username: ubuntu
+  pool: 5
+
+development:
+  <<: *default
+  database: rails_exam_development
+
+test:
+  <<: *default
+  database: rails_exam_test
+
+production:
+  <<: *default
+  database: rails_exam_production
+  password: <%= ENV['RAILS_EXAM_DATABASE_PASSWORD'] %>

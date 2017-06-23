@@ -1,0 +1,85 @@
+<div id='container'>
+    <div id='left'>
+        <h1>Lender</h1>
+
+        <form action="/lenders" method="POST">
+            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+            <label>First Name: </label> 
+            <input type="text" name="lender[first_name]" id="Name">
+
+            <label>Last Name: </label> 
+            <input type="text" name="lender[last_name]" id="Name">    
+
+            <label>Email: </label>
+            <input type="email" name="lender[email]" id="Email">
+
+            <label>Password:  </label>
+            <input type="password" name="lender[password]" id="Password">
+
+            <label>Password Confirmation:  </label>
+            <input type="password" name="lender[password_confirmation]" id="Password_Confirmation">
+
+            <label>Money: </label>
+            <input type="number" name="lender[money]">
+
+            <label>
+                <input type="submit" value="Register">
+            </label>
+
+            <a href="/sessions/new">Already a member?</a>
+        </form>
+    </div>
+
+    <div id='right'>
+        <h1>Borrower</h1>
+
+        <form action="/borrowers" method="POST">
+            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+            <label>First Name: </label> 
+            <input type="text" name="borrower[first_name]" id="Name">
+
+            <label>Last Name: </label> 
+            <input type="text" name="borrower[last_name]" id="Name">    
+
+            <label>Email: </label>
+            <input type="email" name="borrower[email]" id="Email">
+
+            <label>Password: </label>
+            <input type="password" name="borrower[password]" id="Password">
+
+            <label>Password Confirmation: </label>
+            <input type="password" name="borrower[password_confirmation]" id="Password_Confirmation">
+
+            <label>Need Money for: </label>
+            <input type="text" name="borrower[purpose]" id="Email">
+
+            <label>Description: </label>
+            <textarea name="borrower[description]" id="Description" cols="30" rows="3"></textarea>
+
+            <label>Amount Needed: </label>
+            <input type="number" name="borrower[money]" id="Email">
+
+            <label>
+                <input type="submit" value="Register">
+            </label>
+
+            <a href="/sessions/new">Already a member?</a>
+        </form>
+    </div>
+</div>
+
+<style>
+    #right{
+        display: inline-block;
+    }
+    #left{
+        display: inline-block;
+        padding-right: 15%;
+        vertical-align: top;
+    }
+    label{
+        display: block;
+    }
+</style>

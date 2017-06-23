@@ -1,0 +1,23 @@
+<h1>Log In</h1>
+
+<form action="/sessions" method="POST">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <label>Email</label>
+    <input type="email" name="email" id="Email">
+
+    <label>Password</label> 
+    <input type="password" name="password" id="Password">
+
+    <label>
+        <button>Login</button>
+    </label>
+</form>
+
+<a href="/lenders/new">Click here to Register</a>
+
+
+<style>
+    label{
+        display: block;
+    }
+</style>
