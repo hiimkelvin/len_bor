@@ -2,7 +2,7 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  # username: ubuntu
+  username: ubuntu
   pool: 5
 
 development:
